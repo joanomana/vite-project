@@ -1,0 +1,13 @@
+
+services:
+  app:
+    image: node:latest
+    container_name: vite-app
+    working_dir: /web
+    volumes:
+      - .:/web
+    ports:
+      - "5510:5510"
+    environment:
+      - NODE_ENV=development
+    command: ["sh", "-c", "rm -rf node_modules package-lock.json && npm install && npm run dev"]
